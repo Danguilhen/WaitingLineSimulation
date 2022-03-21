@@ -37,7 +37,3 @@ Client FileAttente::retirer() {
     _file.erase(_file.begin());
     return client;
 }
-
-float FileAttente::tempsEntreArrivees() {
-    // TODO
-}
