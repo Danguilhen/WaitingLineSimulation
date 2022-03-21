@@ -2,8 +2,8 @@
 
 class Arrivee : public Evenement {
     public :
-        Arrivee(float tempsMoyenEntreArrivees, float heure);
+        Arrivee(float tempsMoyenEntreArrivees, float heure, Banque *banque);
         void traiter();
     private :
-        float _tempsEntreArrivees;
+        Banque *_banque; // TODO doute sur *
 };

@@ -4,17 +4,18 @@
 #include <vector>
 #include "../headers/Caissier.hpp"
 
-Arrivee::Arrivee(float tempsMoyenEntreArrivees, vector<Caissier> _caissiers, float heure) {
-    _tempsEntreArrivees = (new Poisson)->genererTemps(tempsMoyenEntreArrivees) + heure;
+Arrivee::Arrivee(float tempsMoyenEntreArrivees, float heure, Banque *banque) {
+    _heure = Poisson().genererTemps(tempsMoyenEntreArrivees) + heure;
+    _banque = banque;
 }
 
 void Arrivee::traiter() {
-    if (premierCaissierLibre() != NULL)
+    if (_banque->premierCaissierLibre() != NULL)
     {
-        premierCaissierLibre().servir(new Client());
+        _banque->premierCaissierLibre().servir(Client(_heure));
     }
     else
     {
-        _file.ajouter(new Client());
+        _banque->getFile()->ajouter(Client(_heure));
     }
 }

@@ -4,7 +4,7 @@
 class Banque
 {
 public:
-    Banque(float dureePrevue, vector<int> tpsService);
+    Banque(float dureePrevue, vector<float> tpsService, float tempsMoyenEntreArrivees);
 
     int nbCaissiers();
     int nbClients();
@@ -12,6 +12,8 @@ public:
     float dureePrevue();
     float dureeReel();
     void simulation();
+    FileAttente* getFile();
+    vector<Evenement> getEvenements();
 
 private:
     float _dureeReel;

@@ -9,5 +9,5 @@ FinService::FinService(Caissier *caissier)
 
 void FinService::traiter()
 {
-    _caissier.estLibre();
+    _caissier->estLibre();
 }
