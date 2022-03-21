@@ -1,17 +1,22 @@
-#include "Caissier.hpp"
 #include <vector>
+#include "Evenement.hpp"
+#include "FileAttente.hpp"
+class Banque
+{
+public:
+    Banque(float dureePrevue, vector<int> tpsService);
 
-class Banque {
-    public :
-        Banque(float dureePrevue);
+    int nbCaissiers();
+    int nbClients();
+    Caissier premierCaissierLibre();
+    float dureePrevue();
+    float dureeReel();
+    void simulation();
 
-        int nbCaissiers();
-        int nbClients();
-        Caissier premierCaissierLibre();
-        float dureePrevue();
-        float dureeReel();
-
-    private :
-        float _dureePrevue;
-        vector<Caissier> _caissiers;
+private:
+    float _dureeReel;
+    FileAttente _file;
+    float _dureePrevue;
+    vector<Caissier> _caissiers;
+    vector<Evenement> _evenements;
 };

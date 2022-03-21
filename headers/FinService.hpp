@@ -1,6 +1,11 @@
 #include "Evenement.hpp"
+#include "Caissier.hpp"
+class FinService : public Evenement
+{
+public:
+    FinService(Caissier *caissier);
+    void traiter();
 
-class FinService : public Evenement {
-    public :
-        void traiter();
+private:
+    Caissier &_caissier;
 };

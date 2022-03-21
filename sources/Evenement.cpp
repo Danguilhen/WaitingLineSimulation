@@ -1,9 +1,5 @@
 #include "../headers/Evenement.hpp"
 
-Evenement::Evenement() {
-    // TODO
-}
-
 float Evenement::heure() {
-    // TODO
+    return _heure;
 }

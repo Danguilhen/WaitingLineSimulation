@@ -14,7 +14,7 @@ int FileAttente::longueurMax() {
 }
 
 float FileAttente::longueurMoyenne() {
-    return _longueurMoyenne;
+    return _longueurMoyenne; // TODO
 }
 
 float FileAttente::tempsMoyenAttente() {
