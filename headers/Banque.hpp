@@ -14,6 +14,7 @@ public:
     float dureeReel();
     FileAttente* getFile();
     vector<Evenement> getEvenements();
+    Caissier* getCaissier(int i);
 
 private:
     FileAttente _file;

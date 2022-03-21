@@ -69,3 +69,8 @@ vector<Evenement> Banque::getEvenements()
 {
     return _evenements;
 }
+
+Caissier* Banque::getCaissier(int i)
+{
+    return &_caissiers[i];
+}

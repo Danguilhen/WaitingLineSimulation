@@ -7,7 +7,7 @@
 #include "../headers/Banque.hpp"
 using namespace std;
 
-//  ./main -dp 10 -nc 3 -ts 1 1 1 -ta 0.5
+//  ./simu -dp 10 -nc 3 -ts 1 1 1 -ta 0.5
 //  g++ -o main main.cpp
 int main(int argc, char **argv)
 {
@@ -29,4 +29,15 @@ int main(int argc, char **argv)
     }
     Banque banque(dureePrevue, tempsMoyenService, tempsEntreArrivees);
     banque.lancer();
+    cout << "Durée réelle de simulation : " << banque.dureeReel() << endl;
+    cout << "Nombre total de clients servis :" << banque.nbClients() << endl;
+    for(int i=0; i<nombreCaissiers; i++)
+    {
+        cout << "\nCaissier " << i+1 << " :" << endl;
+        cout << "Nombre de clients servis : " << banque.getCaissier(i)->nbClients() << endl;
+        cout << "Taux d'occupation : " << banque.getCaissier(i)->tauxOccupation() << endl;
+    }
+    cout << "Longueur moyenne de la file :" << banque.getFile()->longueurMoyenne() << endl;
+    cout << "Longueur maximale de la file d'attente : " << banque.getFile()->longueurMax() << endl;
+    cout << "Temps moyen d'attente dans la file d'attente : " << banque.getFile()->tempsMoyenAttente() <<endl;
 }
