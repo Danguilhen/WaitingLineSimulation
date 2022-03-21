@@ -5,6 +5,7 @@
 #include <cstring>
 #include <vector>
 #include "../headers/Banque.hpp"
+
 using namespace std;
 
 //  ./simu -dp 10 -nc 3 -ts 1 1 1 -ta 0.5
@@ -15,6 +16,7 @@ int main(int argc, char **argv)
     int nombreCaissiers = 0;
     vector<float> tempsMoyenService;
     float tempsEntreArrivees;
+
     for (int i = 1; i < argc; i++)
     {
         if (strcmp(argv[i], "-dp") == 0) //durée prévue
@@ -27,6 +29,7 @@ int main(int argc, char **argv)
         else if (strcmp(argv[i], "-ta") == 0) //temps entre arrivée
             tempsEntreArrivees = stof(argv[i + 1]);
     }
+
     Banque banque(dureePrevue, tempsMoyenService, tempsEntreArrivees);
     banque.lancer();
     cout << "Durée réelle de simulation : " << banque.dureeReel() << endl;
