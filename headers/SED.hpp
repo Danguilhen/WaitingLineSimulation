@@ -1,3 +1,9 @@
+#include <vector>
+
+#ifndef SED_
+#define SED_
+using namespace std;
+
 class SED
 {
     public :
@@ -7,3 +13,5 @@ class SED
         float _dureeReel;
         vector<Evenement> _evenements;
 };
+
+#endif

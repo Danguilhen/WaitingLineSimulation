@@ -1,5 +1,10 @@
-#include "Client.hpp"
 #include <vector>
+
+#ifndef FILE
+#define FILE
+
+#include "Client.hpp"
+using namespace std;
 
 class FileAttente {
     public :
@@ -20,3 +25,5 @@ class FileAttente {
         double _tempsMoyenAttente;
         vector<Client> _file;
 };
+
+#endif

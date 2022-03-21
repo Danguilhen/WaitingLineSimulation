@@ -1,3 +1,6 @@
+#ifndef POISSON
+#define POISSON
+
 #include <iostream>
 using namespace std;
 
@@ -7,3 +10,5 @@ public:
     float genererTemps(float lambda);
     int fact(int nbr);
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef SERVICE
+#define SERVICE
+
 #include "Evenement.hpp"
 #include "Caissier.hpp"
 class FinService : public Evenement
@@ -9,3 +12,5 @@ public:
 private:
     Caissier *_caissier;
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef EVENEMENT
+#define EVENEMENT
+
 class Evenement {
     public :
         float heure();
@@ -5,3 +8,5 @@ class Evenement {
     protected:
         float _heure;
 };
+
+#endif

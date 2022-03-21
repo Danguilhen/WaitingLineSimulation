@@ -1,9 +1,16 @@
+#include "Banque.hpp"
+
+#ifndef CAISSIER
+#define CAISSIER
+
 #include "Client.hpp"
 #include "FileAttente.hpp"
 #include "Poisson.hpp"
 #include <iostream>
 #include <vector>
 using namespace std;
+
+class Banque;
 
 class Caissier
 {
@@ -24,3 +31,5 @@ private:
     Banque *_banque;
     vector<float> _tempsService;
 };
+
+#endif

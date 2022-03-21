@@ -1,3 +1,6 @@
+#ifndef CLIENT
+#define CLIENT
+
 class Client {
     public :
         Client(float heureArrivee);
@@ -5,3 +8,5 @@ class Client {
     private :
         float _heureArrivee;
 };
+
+#endif

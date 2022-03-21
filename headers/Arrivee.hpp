@@ -1,3 +1,6 @@
+#ifndef ARRIVEE
+#define ARRIVEE
+
 #include "Evenement.hpp"
 #include "Banque.hpp"
 
@@ -9,3 +12,5 @@ public:
     private :
         Banque* _banque;
 };
+
+#endif
