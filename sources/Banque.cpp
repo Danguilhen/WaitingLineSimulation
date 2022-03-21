@@ -11,11 +11,7 @@ Banque::Banque(float dureePrevue, vector<float> tpsService, float tempsMoyenEntr
     float interTemps;
     _file = FileAttente();
     float heure = 0;
-    while (heure < dureePrevue)
-    {
-        _evenements.push_back(Arrivee(tempsMoyenEntreArrivees, heure, this));
-        heure += interTemps;
-    }
+    _evenements.push_back(Arrivee(tempsMoyenEntreArrivees, heure, this));
     for (int i = 0; i < tpsService.size(); i++)
     {
         _caissiers.push_back(Caissier(tpsService[i], this));
@@ -39,7 +35,7 @@ int Banque::nbClients()
     return nbClients;
 }
 
-Caissier* Banque::premierCaissierLibre()
+Caissier *Banque::premierCaissierLibre()
 {
     int index = 0;
     while (index < _caissiers.size())
@@ -63,7 +59,7 @@ float Banque::dureeReel()
     return _dureeReel;
 }
 
-FileAttente* Banque::getFile()
+FileAttente *Banque::getFile()
 {
     return &_file;
 }
@@ -73,7 +69,7 @@ vector<Evenement> Banque::getEvenements()
     return _evenements;
 }
 
-Caissier* Banque::getCaissier(int i)
+Caissier *Banque::getCaissier(int i)
 {
     return &_caissiers[i];
 }
