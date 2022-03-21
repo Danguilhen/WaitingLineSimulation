@@ -3,19 +3,19 @@
 #include "../headers/Arrivee.hpp"
 using namespace std;
 
-Banque::Banque(float dureePrevue, vector<int> tpsService)
+Banque::Banque(float dureePrevue, vector<float> tpsService, float tempsMoyenEntreArrivees)
 {
     float interTemps;
-    _file = new FileAttente();
-    float temps = 0;
-    while (temps < dureePrevue)
+    _file = FileAttente();
+    float heure = 0;
+    while (heure < dureePrevue)
     {
-        _evenements.push_back(new Arrivee(_file.tempsEntreArrivees())); // TODO correct entries
-        temps += interTemps;
+        _evenements.push_back(Arrivee(tempsMoyenEntreArrivees, heure, this)); // TODO correct entries
+        heure += interTemps;
     }
     for (int i = 0; i < tpsService.size(); i++)
     {
-        _caissiers.push_back(new Caissier(tpsService[i], _evenements));
+        _caissiers.push_back(Caissier(tpsService[i], this));
     }
 
     _dureePrevue = dureePrevue;
@@ -70,4 +70,14 @@ void Banque::simulation()
         evenement.traiter();
     }
     _dureeReel = evenement.heure();
+}
+
+FileAttente* Banque::getFile()
+{
+    return &_file;
+}
+
+vector<Evenement> Banque::getEvenements()
+{
+    return _evenements;
 }

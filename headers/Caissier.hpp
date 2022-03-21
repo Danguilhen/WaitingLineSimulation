@@ -9,7 +9,7 @@ using namespace std;
 class Caissier
 {
 public:
-    Caissier(int tempsMoyenService, FileAttente *file, Banque *banque);
+    Caissier(float tempsMoyenService, Banque *banque);
     float tempsMoyenService();
     int nbClients();
     float tauxOccupation();
@@ -22,7 +22,6 @@ private:
     float _tempsMoyenService;
     int _nbClients;
     bool _estLibre;
-    Banque &_banque;
-    FileAttente *_file;
+    Banque *_banque;
     vector<float> _tempsService;
 };

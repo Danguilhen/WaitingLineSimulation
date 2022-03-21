@@ -3,11 +3,10 @@
 #include <numeric>
 using namespace std;
 
-Caissier::Caissier(int tempsMoyenService, FileAttente *file, Banque *banque)
+Caissier::Caissier(float tempsMoyenService, Banque *banque)
 {
-    _poisson = new Poisson();
+    _poisson = Poisson();
     _banque = banque;
-    _file = file;
     _tempsMoyenService = tempsMoyenService;
     _nbClients = 0;
     _estLibre = true;
@@ -25,18 +24,18 @@ float Caissier::tempsMoyenService()
 
 float Caissier::tauxOccupation()
 {
-    return accumulate(_tempsService.begin(), _tempsService.end(), 0) / _banque.dureeReel();
+    return accumulate(_tempsService.begin(), _tempsService.end(), 0) / _banque->dureeReel();
 }
 
 void Caissier::devientLibre()
 {
-    if (_file.empty()) // file d'attente est vide TODO
+    if (_banque->getFile()->estVide()) // file d'attente est vide TODO
     {
         _estLibre = true;
     }
     else
     {
-        servir(_file.retirer());
+        servir(_banque->getFile()->retirer());
     }
 }
 
@@ -51,5 +50,5 @@ void Caissier::servir(Client client)
     _tempsService.push_back(_poisson.genererTemps(_tempsMoyenService));
     _nbClients += 1;
     _estLibre = false;
-    *_evenement.push_back(new FinService(this)); // TODO ajouter au bon endroit dans la file d'événement
+    _banque->getEvenements().push_back(FinService(this)); // TODO ajouter au bon endroit dans la file d'événement
 }

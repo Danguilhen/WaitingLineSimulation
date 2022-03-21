@@ -7,5 +7,5 @@ public:
     void traiter();
 
 private:
-    Caissier &_caissier;
+    Caissier *_caissier;
 };
