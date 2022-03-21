@@ -1,7 +1,10 @@
 #include "../headers/Banque.hpp"
 #include "../headers/Caissier.hpp"
 #include "../headers/Arrivee.hpp"
+
 using namespace std;
+
+#define NULL __null;
 
 Banque::Banque(float dureePrevue, vector<float> tpsService, float tempsMoyenEntreArrivees)
 {
