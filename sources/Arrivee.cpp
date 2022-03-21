@@ -12,7 +12,7 @@ Arrivee::Arrivee(float tempsMoyenEntreArrivees, float heure, Banque *banque) {
 void Arrivee::traiter() {
     if (_banque->premierCaissierLibre() != NULL)
     {
-        _banque->premierCaissierLibre().servir(Client(_heure));
+        _banque->premierCaissierLibre()->servir(Client(_heure));
     }
     else
     {
