@@ -10,7 +10,7 @@ Banque::Banque(float dureePrevue, vector<float> tpsService, float tempsMoyenEntr
     float heure = 0;
     while (heure < dureePrevue)
     {
-        _evenements.push_back(Arrivee(tempsMoyenEntreArrivees, heure, this)); // TODO correct entries
+        _evenements.push_back(Arrivee(tempsMoyenEntreArrivees, heure, this));
         heure += interTemps;
     }
     for (int i = 0; i < tpsService.size(); i++)
@@ -58,18 +58,6 @@ float Banque::dureePrevue()
 float Banque::dureeReel()
 {
     return _dureeReel;
-}
-
-void Banque::simulation()
-{
-    Evenement evenement;
-    while (!_evenements.empty())
-    {
-        evenement = _evenements.front();
-        _evenements.erase(_evenements.begin());
-        evenement.traiter();
-    }
-    _dureeReel = evenement.heure();
 }
 
 FileAttente* Banque::getFile()
