@@ -1,6 +1,11 @@
 #include "SED.hpp"
 #include "Evenement.hpp"
 
+void SED::ajouter(Evenement evenement)
+{
+    _evenements.push_back(evenement);
+}
+
 void SED::lancer()
 {
     Evenement evenement;

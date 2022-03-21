@@ -1,7 +1,7 @@
 class SED
 {
     public :
-        float ajouter(Evenement evenement);
+        void ajouter(Evenement evenement);
         void lancer();
     protected :
         float _dureeReel;
