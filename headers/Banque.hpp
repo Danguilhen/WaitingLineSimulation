@@ -9,7 +9,7 @@ public:
 
     int nbCaissiers();
     int nbClients();
-    Caissier premierCaissierLibre();
+    Caissier* premierCaissierLibre();
     float dureePrevue();
     float dureeReel();
     FileAttente* getFile();

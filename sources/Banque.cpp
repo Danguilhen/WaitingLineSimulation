@@ -36,14 +36,14 @@ int Banque::nbClients()
     return nbClients;
 }
 
-Caissier Banque::premierCaissierLibre()
+Caissier* Banque::premierCaissierLibre()
 {
     int index = 0;
     while (index < _caissiers.size())
     {
         if (_caissiers.at(index).estLibre())
         {
-            return _caissiers.at(index);
+            return &_caissiers.at(index);
         }
         index++;
     }
