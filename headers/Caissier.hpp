@@ -1,8 +1,11 @@
+#pragma once 
+#include "Banque.hpp"
 #include "Client.hpp"
 #include "FileAttente.hpp"
 #include "Poisson.hpp"
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 class Caissier

@@ -1,5 +1,7 @@
+#pragma once 
 #include "Evenement.hpp"
 #include "Caissier.hpp"
+
 class FinService : public Evenement
 {
 public:

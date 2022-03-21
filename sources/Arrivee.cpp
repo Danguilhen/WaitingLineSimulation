@@ -1,3 +1,4 @@
+#pragma once 
 #include "../headers/Arrivee.hpp"
 #include "../headers/Client.hpp"
 #include "../headers/Poisson.hpp"

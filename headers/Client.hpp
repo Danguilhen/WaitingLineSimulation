@@ -1,3 +1,5 @@
+#pragma once 
+
 class Client {
     public :
         Client(float heureArrivee);

@@ -1,5 +1,7 @@
-#include "Client.hpp"
+#pragma once 
 #include <vector>
+#include "Client.hpp"
+
 
 class FileAttente {
     public :

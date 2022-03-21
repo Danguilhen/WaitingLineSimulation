@@ -1,3 +1,5 @@
+#pragma once 
+
 class Evenement {
     public :
         float heure();
