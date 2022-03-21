@@ -2,6 +2,7 @@
 #include "Evenement.hpp"
 #include "FileAttente.hpp"
 #include "SED.hpp"
+#include "Caissier.hpp"
 class Banque : public SED
 {
 public:

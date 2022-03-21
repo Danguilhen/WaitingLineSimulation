@@ -1,7 +1,10 @@
 #include "../headers/Banque.hpp"
 #include "../headers/Caissier.hpp"
 #include "../headers/Arrivee.hpp"
+
 using namespace std;
+
+#define NULL __null;
 
 Banque::Banque(float dureePrevue, vector<float> tpsService, float tempsMoyenEntreArrivees)
 {
@@ -36,14 +39,14 @@ int Banque::nbClients()
     return nbClients;
 }
 
-Caissier Banque::premierCaissierLibre()
+Caissier* Banque::premierCaissierLibre()
 {
     int index = 0;
     while (index < _caissiers.size())
     {
         if (_caissiers.at(index).estLibre())
         {
-            return _caissiers.at(index);
+            return &_caissiers.at(index);
         }
         index++;
     }
