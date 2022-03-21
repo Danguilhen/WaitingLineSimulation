@@ -4,9 +4,11 @@
 #include <iostream>
 #include <cstring>
 #include <vector>
+#include "../headers/Banque.hpp"
 using namespace std;
 
-//g++ -o main main.cpp
+//  ./main -dp 10 -nc 3 -ts 1 1 1 -ta 0.5
+//  g++ -o main main.cpp
 int main(int argc, char **argv)
 {
     int dureePrevue;
@@ -25,10 +27,6 @@ int main(int argc, char **argv)
         else if (strcmp(argv[i], "-ta") == 0)//temps entre arrivée
             tempsEntreArrivees = stof(argv[i+1]);
     }
-
-    cout << dureePrevue << endl;
-    cout << nombreCaissiers << endl;
-    for (int i = 0; i<nombreCaissiers; i++)
-        cout << tempsMoyenService[i] <<endl;
-    cout << tempsEntreArrivees << endl;
+    Banque banque(dureePrevue, tempsMoyenService, tempsEntreArrivees);
+    banque.lancer();
 }
