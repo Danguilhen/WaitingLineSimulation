@@ -1,9 +1,11 @@
-#include "../headers/Client.hpp"
+#include "../headers/Client.h"
 
-Client::Client(float heureArrivee) {
+Client::Client(float heureArrivee)
+{
     _heureArrivee = heureArrivee;
 }
 
-float Client::heureArrivee() {
+float Client::heureArrivee()
+{
     return _heureArrivee;
 }

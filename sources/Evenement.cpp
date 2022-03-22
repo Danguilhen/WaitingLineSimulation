@@ -1,5 +1,9 @@
-#include "../headers/Evenement.hpp"
+#include "../headers/Evenement.h"
 
-float Evenement::heure() {
+Evenement::Evenement()
+{
+}
+float Evenement::heure()
+{
     return _heure;
 }

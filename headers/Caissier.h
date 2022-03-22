@@ -1,11 +1,10 @@
-#include "Banque.hpp"
-
 #ifndef CAISSIER
 #define CAISSIER
 
-#include "Client.hpp"
-#include "FileAttente.hpp"
-#include "Poisson.hpp"
+#include "Banque.h"
+#include "Client.h"
+#include "FileAttente.h"
+#include "Poisson.h"
 #include <iostream>
 #include <vector>
 using namespace std;

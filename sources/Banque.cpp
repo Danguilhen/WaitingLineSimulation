@@ -1,17 +1,15 @@
-#include "../headers/Banque.hpp"
-#include "../headers/Caissier.hpp"
-#include "../headers/Arrivee.hpp"
-
+#include "../headers/Banque.h"
+#include "../headers/Caissier.h"
+#include "../headers/Arrivee.h"
 using namespace std;
-
-#define NULL __null;
 
 Banque::Banque(float dureePrevue, vector<float> tpsService, float tempsMoyenEntreArrivees)
 {
+    _tpsEntreArrivees = tempsMoyenEntreArrivees;
     float interTemps;
     _file = FileAttente();
     float heure = 0;
-    _evenements.push_back(Arrivee(tempsMoyenEntreArrivees, heure, this));
+    _evenements.push_back(Arrivee(heure, this));
     for (int i = 0; i < tpsService.size(); i++)
     {
         _caissiers.push_back(Caissier(tpsService[i], this));
@@ -72,4 +70,8 @@ vector<Evenement> Banque::getEvenements()
 Caissier *Banque::getCaissier(int i)
 {
     return &_caissiers[i];
+}
+float Banque::tpsEntreArrivees()
+{
+    return _tpsEntreArrivees;
 }

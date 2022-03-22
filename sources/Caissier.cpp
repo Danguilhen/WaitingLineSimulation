@@ -1,5 +1,5 @@
-#include "../headers/Caissier.hpp"
-#include "../headers/FinService.hpp"
+#include "../headers/Caissier.h"
+#include "../headers/FinService.h"
 #include <numeric>
 using namespace std;
 

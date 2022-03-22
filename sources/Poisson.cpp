@@ -1,4 +1,4 @@
-#include "Poisson.hpp"
+#include "../headers/Poisson.h"
 
 int Poisson::fact(int nbr)
 {

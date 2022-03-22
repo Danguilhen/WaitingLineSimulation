@@ -1,8 +1,8 @@
 #ifndef SERVICE
 #define SERVICE
 
-#include "Evenement.hpp"
-#include "Caissier.hpp"
+#include "Evenement.h"
+#include "Caissier.h"
 class FinService : public Evenement
 {
 public:

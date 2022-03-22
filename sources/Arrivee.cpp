@@ -1,25 +1,20 @@
-#include "../headers/Arrivee.hpp"
-#include "../headers/Client.hpp"
-#include "../headers/Poisson.hpp"
+#include "../headers/Arrivee.h"
+#include "../headers/Client.h"
+#include "../headers/Poisson.h"
 #include <vector>
-#include "../headers/Caissier.hpp"
+#include "../headers/Caissier.h"
 
-Arrivee::Arrivee(float tempsMoyenEntreArrivees, float heure, Banque *banque)
+Arrivee::Arrivee(float heure, Banque *banque)
 {
-    _heure = Poisson().genererTemps(tempsMoyenEntreArrivees) + heure;
-    _banque = *banque;
-}
-
-Banque Arrivee::banque()
-{
-    return _banque;
+    _heure = Poisson().genererTemps(_banque->tpsEntreArrivees()) + heure;
+    _banque = banque;
 }
 
 void Arrivee::traiter()
 {
-    if (heure < dureePrevue)
+    if (_banque->heure() < _banque->dureePrevue())
     {
-        _banque->getEvenements()->push_back(Arrivee(tempsMoyenEntreArrivees, heure, this));
+        _banque->getEvenements().push_back(Arrivee(_heure, _banque));
     }
     if (_banque->premierCaissierLibre() != NULL) // Must be modify
     {
@@ -27,6 +22,6 @@ void Arrivee::traiter()
     }
     else
     {
-        _banque.getFile()->ajouter(Client(_heure));
+        _banque->getFile()->ajouter(Client(_heure));
     }
 }

@@ -1,10 +1,11 @@
-#include "../headers/FinService.hpp"
-#include "../headers/Poisson.hpp"
+#include "../headers/FinService.h"
+#include "../headers/Poisson.h"
+#include "../headers/Caissier.h"
 
 FinService::FinService(Caissier *caissier)
 {
     _caissier = caissier;
-    _heure = (new Poisson)->genererTemps(caissier->tempsMoyenService());
+    _heure = (new Poisson())->genererTemps(caissier->tempsMoyenService());
 }
 
 void FinService::traiter()
