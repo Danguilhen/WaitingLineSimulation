@@ -9,3 +9,6 @@ float Client::heureArrivee()
 {
     return _heureArrivee;
 }
+
+Client::~Client(){
+}

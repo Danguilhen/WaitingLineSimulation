@@ -17,15 +17,19 @@ void Arrivee::traiter()
     if (_banque->heure() < _banque->dureePrevue())
     {
         cout << _banque->getEvenements().size() << endl;
-        _banque->getEvenements().push_back(new Arrivee(_heure, _banque));
+        Arrivee* arrivee = new Arrivee(_heure, _banque);
+        _banque->getEvenements().push_back(arrivee);
         cout << _banque->getEvenements().size() << endl;
     }
     if (_banque->premierCaissierLibre() != NULL) // Must be modify
     {
+        cout << "Deuxième if" << endl;
         _banque->premierCaissierLibre()->servir(Client(_heure));
+        cout << "Deuxième if partie deux" << endl;
     }
     else
     {
+        cout << "3 if" << endl;
         _banque->getFile()->ajouter(Client(_heure));
     }
 }

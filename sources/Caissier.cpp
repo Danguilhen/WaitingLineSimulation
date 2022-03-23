@@ -35,7 +35,7 @@ void Caissier::devientLibre()
     }
     else
     {
-        servir(_banque->getFile()->retirer());
+        servir(*_banque->getFile()->retirer());
     }
 }
 
@@ -44,9 +44,9 @@ bool Caissier::estLibre()
     return _estLibre;
 }
 
-void Caissier::servir(Client client)
+void Caissier::servir(Client *client)
 {
-    delete &client;
+    delete client;
     _tempsService.push_back(_poisson.genererTemps(_tempsMoyenService));
     _nbClients += 1;
     _estLibre = false;

@@ -1,10 +1,12 @@
 #include "../headers/FileAttente.h"
 #include "../headers/Client.h"
+#include "../headers/Banque.h"
 
 using namespace std;
 
-FileAttente::FileAttente()
+FileAttente::FileAttente(Banque *banque)
 {
+    _banque = banque;
     _longueurMax = 0;
     _nbClients = 0;
 }
@@ -41,7 +43,9 @@ bool FileAttente::estVide()
 
 Client FileAttente::retirer()
 {
+
     Client client = _file.front();
+    tempsAttente.push_back(_banque->heure() - client.heureArrivee());
     _file.erase(_file.begin());
     return client;
 }

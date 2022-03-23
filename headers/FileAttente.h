@@ -1,14 +1,15 @@
 #ifndef FILE
 #define FILE
 
+#include "Banque.h"
 #include <vector>
 #include "Client.h"
 
+class Banque;
 class FileAttente
 {
 public:
-    FileAttente();
-
+    FileAttente(Banque *banque);
     float tempsEntreArrivees();
     float longueurMoyenne();
     int longueurMax();
@@ -21,8 +22,9 @@ private:
     int _nbClients;
     int _longueurMax;
     double _longueurMoyenne;
-    double _tempsMoyenAttente;
     std::vector<Client> _file;
+    std::vector<float> tempsAttente;
+    Banque *_banque;
 };
 
 #endif

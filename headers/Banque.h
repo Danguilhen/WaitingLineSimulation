@@ -8,6 +8,7 @@
 #include "SED.h"
 #include "Caissier.h"
 
+class FileAttente;
 class Caissier;
 class Banque : public SED
 {
@@ -20,7 +21,7 @@ public:
     float dureePrevue();
     float dureeReel();
     FileAttente *getFile();
-    vector<Evenement*> getEvenements();
+    vector<Evenement*>& getEvenements();
     Caissier *getCaissier(int i);
     float tpsEntreArrivees();
 

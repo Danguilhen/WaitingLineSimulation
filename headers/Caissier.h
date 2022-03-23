@@ -20,7 +20,7 @@ public:
     float tauxOccupation();
     void devientLibre();
     bool estLibre();
-    void servir(Client client);
+    void servir(Client *client);
 
 private:
     Poisson _poisson;
