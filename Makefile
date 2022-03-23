@@ -1,7 +1,6 @@
 # Fichiers sources
 SRC = sources/Banque.cpp \
 sources/Arrivee.cpp  \
-sources/Banque.cpp  \
 sources/Caissier.cpp  \
 sources/Client.cpp  \
 sources/Evenement.cpp  \
@@ -17,7 +16,7 @@ OBJ = $(SRC:.cpp=.o)
 # Nom du programme
 NAME = simu
 
-all: $(NAME) \
+all: $(NAME)
 	@rm -f $(OBJ)
 
 $(NAME): $(OBJ)

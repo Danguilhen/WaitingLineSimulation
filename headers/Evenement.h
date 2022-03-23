@@ -4,7 +4,7 @@
 class Evenement
 {
 public:
-    Evenement();
+    //Evenement();
     float heure();
     virtual void traiter();
 
