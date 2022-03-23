@@ -1,5 +1,6 @@
 #include "../headers/SED.h"
 #include "../headers/Evenement.h"
+#include <iostream>
 
 void SED::ajouter(Evenement evenement)
 {
@@ -8,7 +9,7 @@ void SED::ajouter(Evenement evenement)
 
 void SED::lancer()
 {
-    size_t index;
+    int index;
     float min;
     Evenement evenement;
 
@@ -16,8 +17,9 @@ void SED::lancer()
     {
         index = 0;
         min = _evenements[0].heure();
-        for (size_t i = 0; i < _evenements.size(); i++)
+        for (int i = 0; i < (int) _evenements.size(); i++)
         {
+            cout << "Coucou" << endl;
             if (_evenements[i].heure() < min)
             {
                 min = _evenements[i].heure();

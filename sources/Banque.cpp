@@ -10,9 +10,9 @@ Banque::Banque(float dureePrevue, vector<float> tpsService, float tempsMoyenEntr
     _file = FileAttente();
     float heure = Poisson().genererTemps(this->tpsEntreArrivees());
     _evenements.push_back(Arrivee(heure, this));
-    for (size_t i = 0; i < tpsService.size(); i++)
+    for (int i = 0; i < (int) tpsService.size(); i++)
     {
-        _caissiers.push_back(Caissier(tpsService[i], this));
+        _caissiers.emplace_back(Caissier(tpsService[i], this));
     }
 
     _dureePrevue = dureePrevue;

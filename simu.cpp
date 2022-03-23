@@ -37,7 +37,7 @@ int main(int argc, char **argv)
         cout << "Nombre de clients servis : " << banque.getCaissier(i)->nbClients() << endl;
         cout << "Taux d'occupation : " << banque.getCaissier(i)->tauxOccupation() << endl;
     }
-    cout << "Longueur moyenne de la file :" << banque.getFile()->longueurMoyenne() << endl;
+    cout << "Longueur moyenne de la file : " << banque.getFile()->longueurMoyenne() << endl;
     cout << "Longueur maximale de la file d'attente : " << banque.getFile()->longueurMax() << endl;
     cout << "Temps moyen d'attente dans la file d'attente : " << banque.getFile()->tempsMoyenAttente() << endl;
 }

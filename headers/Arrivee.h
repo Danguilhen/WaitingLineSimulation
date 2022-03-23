@@ -8,7 +8,7 @@ class Arrivee : public Evenement
 {
 public:
     Arrivee(float heure, Banque *banque);
-    void traiter();
+    virtual void traiter() final;
 
 private:
     Banque *_banque;

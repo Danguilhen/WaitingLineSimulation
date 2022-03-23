@@ -1,4 +1,6 @@
 #include "../headers/Evenement.h"
+#include <iostream>
+using namespace std;
 
 /*Evenement::Evenement()
 {
@@ -9,5 +11,5 @@ float Evenement::heure()
 }
 
 void Evenement::traiter(){
-
+    cout << "Je traite dans evenement" << endl;
 }

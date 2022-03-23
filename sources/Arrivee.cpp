@@ -2,6 +2,8 @@
 #include "../headers/Client.h"
 #include <vector>
 #include "../headers/Caissier.h"
+#include <iostream>
+using namespace std;
 
 Arrivee::Arrivee(float heure, Banque *banque)
 {
@@ -11,9 +13,12 @@ Arrivee::Arrivee(float heure, Banque *banque)
 
 void Arrivee::traiter()
 {
+    cout << "Je traite dans arrivée" << endl;
     if (_banque->heure() < _banque->dureePrevue())
     {
+        cout << _banque->getEvenements().size() << endl;
         _banque->getEvenements().push_back(Arrivee(_heure, _banque));
+        cout << _banque->getEvenements().size() << endl;
     }
     if (_banque->premierCaissierLibre() != NULL) // Must be modify
     {
