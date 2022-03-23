@@ -50,5 +50,5 @@ void Caissier::servir(Client client)
     _tempsService.push_back(_poisson.genererTemps(_tempsMoyenService));
     _nbClients += 1;
     _estLibre = false;
-    _banque->getEvenements().push_back(FinService(this)); // TODO ajouter au bon endroit dans la file d'événement
+    _banque->getEvenements().push_back(new FinService(this)); // TODO ajouter au bon endroit dans la file d'événement
 }

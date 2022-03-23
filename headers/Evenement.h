@@ -6,7 +6,7 @@ class Evenement
 public:
     //Evenement();
     float heure();
-    virtual void traiter();
+    virtual void traiter() = 0;
 
 protected:
     float _heure;

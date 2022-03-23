@@ -17,7 +17,7 @@ void Arrivee::traiter()
     if (_banque->heure() < _banque->dureePrevue())
     {
         cout << _banque->getEvenements().size() << endl;
-        _banque->getEvenements().push_back(Arrivee(_heure, _banque));
+        _banque->getEvenements().push_back(new Arrivee(_heure, _banque));
         cout << _banque->getEvenements().size() << endl;
     }
     if (_banque->premierCaissierLibre() != NULL) // Must be modify

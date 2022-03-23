@@ -9,7 +9,3 @@ float Evenement::heure()
 {
     return _heure;
 }
-
-void Evenement::traiter(){
-    cout << "Je traite dans evenement" << endl;
-}

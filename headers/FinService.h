@@ -7,7 +7,7 @@ class FinService : public Evenement
 {
 public:
     FinService(Caissier *caissier);
-    virtual void traiter() final;
+    void traiter();
 
 private:
     Caissier *_caissier;

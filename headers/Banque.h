@@ -20,7 +20,7 @@ public:
     float dureePrevue();
     float dureeReel();
     FileAttente *getFile();
-    vector<Evenement> getEvenements();
+    vector<Evenement*> getEvenements();
     Caissier *getCaissier(int i);
     float tpsEntreArrivees();
 
