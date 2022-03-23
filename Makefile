@@ -18,17 +18,16 @@ OBJ = $(SRC:.cpp=.o)
 NAME = simu
 
 all: $(NAME) \
-    @rm -f $(OBJ)
+	@rm -f $(OBJ)
 
-$(NAME): $(OBJ) \
-    @g++ -o $(NAME) $(SRC) -W -Wall -Wextra -Werror -g3 \
-    @rm -f $(OBJ)
-
-clean: \
-    @rm -rf *.o
+$(NAME): $(OBJ)
+	@g++ -o $(NAME) $(SRC) -W -Wall -Wextra -Werror -g3 \
+    
+clean: 
+	@rm -rf *.o
 
 fclean: clean \
-    @rm -rf $(NAME) \
-    @rm -rf *~
+	@rm -rf $(NAME) \
+	@rm -rf *~
 
-re: fclean all
+re: fclan all
