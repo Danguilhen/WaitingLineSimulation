@@ -6,11 +6,11 @@ using namespace std;
 Banque::Banque(float dureePrevue, vector<float> tpsService, float tempsMoyenEntreArrivees)
 {
     _tpsEntreArrivees = tempsMoyenEntreArrivees;
-    float interTemps;
+    //float interTemps;
     _file = FileAttente();
-    float heure = 0;
+    float heure = Poisson().genererTemps(this->tpsEntreArrivees());
     _evenements.push_back(Arrivee(heure, this));
-    for (int i = 0; i < tpsService.size(); i++)
+    for (size_t i = 0; i < tpsService.size(); i++)
     {
         _caissiers.push_back(Caissier(tpsService[i], this));
     }
@@ -35,7 +35,7 @@ int Banque::nbClients()
 
 Caissier *Banque::premierCaissierLibre()
 {
-    int index = 0;
+    size_t index = 0;
     while (index < _caissiers.size())
     {
         if (_caissiers.at(index).estLibre())

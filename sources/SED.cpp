@@ -8,7 +8,7 @@ void SED::ajouter(Evenement evenement)
 
 void SED::lancer()
 {
-    int index;
+    size_t index;
     float min;
     Evenement evenement;
 
@@ -16,7 +16,7 @@ void SED::lancer()
     {
         index = 0;
         min = _evenements[0].heure();
-        for (int i = 0; i < _evenements.size(); i++)
+        for (size_t i = 0; i < _evenements.size(); i++)
         {
             if (_evenements[i].heure() < min)
             {

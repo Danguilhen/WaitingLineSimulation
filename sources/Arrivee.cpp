@@ -1,12 +1,11 @@
 #include "../headers/Arrivee.h"
 #include "../headers/Client.h"
-#include "../headers/Poisson.h"
 #include <vector>
 #include "../headers/Caissier.h"
 
 Arrivee::Arrivee(float heure, Banque *banque)
 {
-    _heure = Poisson().genererTemps(_banque->tpsEntreArrivees()) + heure;
+    _heure = heure;
     _banque = banque;
 }
 

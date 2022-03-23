@@ -21,21 +21,22 @@ float FileAttente::longueurMoyenne()
 
 float FileAttente::tempsMoyenAttente()
 {
+    return(1.5);
     // TODO
 }
 
 void FileAttente::ajouter(Client client)
 {
     _file.push_back(client);
-    if (_file.size() > _longueurMax)
+    if ((int)_file.size() > _longueurMax)
     {
-        _longueurMax = _file.size();
+        _longueurMax = (int) _file.size();
     }
 }
 
 bool FileAttente::estVide()
 {
-    _file.empty();
+    return _file.empty();
 }
 
 Client FileAttente::retirer()
