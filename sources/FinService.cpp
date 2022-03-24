@@ -1,6 +1,5 @@
 #include "../headers/FinService.h"
 #include <iostream>
-using namespace std;
 
 FinService::FinService(Caissier *caissier)
 {
@@ -10,6 +9,6 @@ FinService::FinService(Caissier *caissier)
 
 void FinService::traiter()
 {
-    cout << "Je traite dans fin de service" << endl;
+    std::cout << "Je traite dans fin de service" << '\n';
     _caissier->estLibre();
 }

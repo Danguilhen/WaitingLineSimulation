@@ -1,5 +1,6 @@
-#ifndef CAISSIER
-#define CAISSIER
+// //#ifndef CAISSIER
+// //#define
+#pragma once
 
 #include "Banque.h"
 #include "Client.h"
@@ -7,7 +8,6 @@
 #include "Poisson.h"
 #include <iostream>
 #include <vector>
-using namespace std;
 
 class Banque;
 
@@ -28,7 +28,7 @@ private:
     int _nbClients;
     bool _estLibre;
     Banque *_banque;
-    vector<float> _tempsService;
+    std::vector<float> _tempsService;
 };
 
-#endif
+////#endif

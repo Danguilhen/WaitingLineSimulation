@@ -1,6 +1,5 @@
 #include "../headers/Arrivee.h"
-
-using namespace std;
+#include "../headers/Banque.h"
 
 Arrivee::Arrivee(float heure, Banque *banque)
 {
@@ -10,23 +9,23 @@ Arrivee::Arrivee(float heure, Banque *banque)
 
 void Arrivee::traiter()
 {
-    cout << "Je traite dans arrivée" << endl;
+    std::cout << "Je traite dans arrivée" << std::endl;
     if (_banque->heure() < _banque->dureePrevue())
     {
-        cout << _banque->getEvenements().size() << endl;
-        Arrivee* arrivee = new Arrivee(_heure, _banque);
+        std::cout << _banque->getEvenements().size() << std::endl;
+        Arrivee *arrivee = new Arrivee(_heure, _banque);
         _banque->getEvenements().push_back(arrivee);
-        cout << _banque->getEvenements().size() << endl;
+        std::cout << _banque->getEvenements().size() << std::endl;
     }
     if (_banque->premierCaissierLibre() != NULL) // Must be modify
     {
-        cout << "Deuxième if" << endl;
+        std::cout << "Deuxième if" << std::endl;
         _banque->premierCaissierLibre()->servir(new Client(_heure));
-        cout << "Deuxième if partie deux" << endl;
+        std::cout << "Deuxième if partie deux" << std::endl;
     }
     else
     {
-        cout << "3 if" << endl;
+        std::cout << "3 if" << std::endl;
         _banque->getFile()->ajouter(new Client(_heure));
     }
 }

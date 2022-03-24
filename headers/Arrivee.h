@@ -1,9 +1,11 @@
-#ifndef ARRIVEE
-#define ARRIVEE
+// //#ifndef ARRIVEE
+// //#define
+#pragma once
 
 #include "Evenement.h"
 #include "Banque.h"
-
+#include <iostream>
+class Banque;
 class Arrivee : public Evenement
 {
 public:
@@ -14,4 +16,4 @@ private:
     Banque *_banque;
 };
 
-#endif
+// //#endif

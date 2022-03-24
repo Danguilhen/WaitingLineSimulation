@@ -1,7 +1,6 @@
 #include "../headers/Caissier.h"
-
-
-using namespace std;
+#include "../headers/FinService.h"
+#include <numeric>
 
 Caissier::Caissier(float tempsMoyenService, Banque *banque)
 {
@@ -19,12 +18,12 @@ int Caissier::nbClients()
 
 float Caissier::tempsMoyenService()
 {
-    return accumulate(_tempsService.begin(), _tempsService.end(), 0) / _tempsService.size();
+    return std::accumulate(_tempsService.begin(), _tempsService.end(), 0) / _tempsService.size();
 }
 
 float Caissier::tauxOccupation()
 {
-    return accumulate(_tempsService.begin(), _tempsService.end(), 0) / _banque->dureeReel();
+    return std::accumulate(_tempsService.begin(), _tempsService.end(), 0) / _banque->dureeReel();
 }
 
 void Caissier::devientLibre()
@@ -50,5 +49,7 @@ void Caissier::servir(Client *client)
     _tempsService.push_back(_poisson.genererTemps(_tempsMoyenService));
     _nbClients += 1;
     _estLibre = false;
-    _banque->getEvenements().push_back(new FinService(this)); // TODO ajouter au bon endroit dans la file d'événement
+    FinService *finService = new FinService(this);
+    _banque->getEvenements()
+        .push_back(finService); // TODO ajouter au bon endroit dans la file d'événement
 }

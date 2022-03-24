@@ -1,16 +1,18 @@
 #include "../headers/Banque.h"
+#include "../headers/FileAttente.h"
 
-Banque::Banque(float dureePrevue, vector<float> tpsService, float tempsMoyenEntreArrivees)
+Banque::Banque(float dureePrevue, std::vector<float> tpsService, float tempsMoyenEntreArrivees)
 {
     _tpsEntreArrivees = tempsMoyenEntreArrivees;
     Caissier *caissier;
-    _file = new FileAttente(this); 
+    _file = new FileAttente(this);
     float heure = Poisson().genererTemps(this->tpsEntreArrivees());
-    _evenements.push_back(new Arrivee(heure, this));
-    for (int i = 0; i < (int) tpsService.size(); i++)
-    {   
+    Arrivee *arrivee = new Arrivee(heure, this);
+    _evenements.push_back(arrivee);
+    for (int i = 0; i < (int)tpsService.size(); i++)
+    {
         caissier = new Caissier(tpsService[i], this);
-        _caissiers.push_back(*caissier);
+        _caissiers.push_back(caissier);
     }
 
     _dureePrevue = dureePrevue;
@@ -26,7 +28,7 @@ int Banque::nbClients()
     int nbClients = 0;
     for (auto caissier = begin(_caissiers); caissier != end(_caissiers); ++caissier)
     {
-        nbClients += (*caissier).nbClients();
+        nbClients += (*caissier)->nbClients();
     }
     return nbClients;
 }
@@ -37,16 +39,16 @@ Caissier *Banque::premierCaissierLibre()
     Caissier *caissier;
     while (index < _caissiers.size())
     {
-        if (_caissiers.at(index).estLibre())
+        if (_caissiers.at(index)->estLibre())
         {
-            cout << "Dans if de caissier libre" << endl;
-            caissier = &_caissiers.at(index);
-            cout << "caissier at index réussi" << endl;
-            return caissier; //TODO : corriger
+            std::cout << "Dans if de caissier libre" << '\n';
+            caissier = _caissiers.at(index);
+            std::cout << "caissier at index réussi" << '\n';
+            return caissier; // TODO : corriger
         }
         index++;
     }
-    cout << "Avant de return null" << endl;
+    std::cout << "Avant de return null" << '\n';
     return NULL;
 }
 
@@ -65,14 +67,14 @@ FileAttente *Banque::getFile()
     return _file;
 }
 
-vector<Evenement*>& Banque::getEvenements()
+std::vector<Evenement *> &Banque::getEvenements()
 {
     return _evenements;
 }
 
 Caissier *Banque::getCaissier(int i)
 {
-    return &_caissiers[i];
+    return _caissiers[i];
 }
 float Banque::tpsEntreArrivees()
 {

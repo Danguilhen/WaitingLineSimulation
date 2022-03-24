@@ -1,13 +1,16 @@
-#ifndef CLIENT
-#define CLIENT
+////#ifndef CLIENT
+////#define
+#pragma once
 
-class Client {
-    public :
-        Client(float heureArrivee);
-        float heureArrivee();
-        ~Client();
-    private :
-        float _heureArrivee;
+class Client
+{
+public:
+    Client(float heureArrivee);
+    float heureArrivee();
+    ~Client();
+
+private:
+    float _heureArrivee;
 };
 
-#endif
+////#endif

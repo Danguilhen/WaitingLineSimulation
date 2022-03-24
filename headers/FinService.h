@@ -1,5 +1,6 @@
-#ifndef SERVICE
-#define SERVICE
+//#ifndef SERVICE
+//#define
+#pragma once
 
 #include "Evenement.h"
 #include "Caissier.h"
@@ -13,4 +14,4 @@ private:
     Caissier *_caissier;
 };
 
-#endif
+//#endif

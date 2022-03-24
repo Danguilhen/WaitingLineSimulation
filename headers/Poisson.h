@@ -1,9 +1,9 @@
-#ifndef POISSON
-#define POISSON
+//#ifndef POISSON
+//#define
+#pragma once
 
 #include <iostream>
 #include <math.h>
-using namespace std;
 
 class Poisson
 {
@@ -12,4 +12,4 @@ public:
     int fact(int nbr);
 };
 
-#endif
+//#endif
