@@ -1,0 +1,32 @@
+# Fichiers sources
+SRC = sources/Evenement.cpp \
+sources/Client.cpp  \
+sources/SED.cpp \
+sources/Poisson.cpp \
+#sources/Banque.cpp \
+#sources/Arrivee.cpp  \
+#sources/Caissier.cpp  \
+#sources/FileAttente.cpp  \
+#sources/FinService.cpp  \
+#simu.cpp
+
+# Fichiers objets
+OBJ = $(SRC:.cpp=.o)
+ 
+# Nom du programme
+NAME = simu
+
+all: $(NAME)
+	@rm -f $(OBJ)
+
+$(NAME): $(OBJ)
+	@g++ -o $(NAME) $(SRC) -W -Wall -Wextra -Werror -g3 \
+    
+clean: 
+	@rm -rf *.o
+
+fclean: clean \
+	@rm -rf $(NAME) \
+	@rm -rf *~
+
+re: fclan all
