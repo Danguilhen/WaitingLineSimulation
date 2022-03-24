@@ -1,4 +1,6 @@
 #include "../headers/Poisson.h"
+#include <random>
+#include <ctime>
 
 int Poisson::fact(int nbr)
 {
@@ -14,8 +16,10 @@ float Poisson::genererTemps(float lambda)
 {
     float d, x;
     int k, r;
-
-    k = rand() % 100;
+    srand((unsigned int)time(NULL));
+    std::poisson_distribution<int> distribution(lambda);
+    std::default_random_engine generator;
+    k = distribution.operator()(generator);
     x = exp(-lambda);
     r = fact(k);
     d = pow(lambda, k) / (float)r;
