@@ -1,7 +1,5 @@
 #include "../headers/Arrivee.h"
 
-using namespace std;
-
 Arrivee::Arrivee(float heure, Banque *banque)
 {
     _heure = heure;

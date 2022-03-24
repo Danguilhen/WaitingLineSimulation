@@ -17,7 +17,7 @@ void SED::lancer()
         min = _evenements[0]->heure();
         for (int i = 0; i < (int) _evenements.size(); i++)
         {
-            cout << "Coucou" << endl;
+            std::cout << "Coucou" << std::endl;
             if (_evenements[i]->heure() < min)
             {
                 min = _evenements[i]->heure();

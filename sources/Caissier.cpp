@@ -1,8 +1,5 @@
 #include "../headers/Caissier.h"
 
-
-using namespace std;
-
 Caissier::Caissier(float tempsMoyenService, Banque *banque)
 {
     _poisson = Poisson();
