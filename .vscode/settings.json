@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.ejs": "html",
         "vector": "cpp",
         "iostream": "cpp",
         "atomic": "cpp",
@@ -44,7 +45,9 @@
         "xstddef": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "array": "cpp",
+        "string_view": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

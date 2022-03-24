@@ -1,6 +1,4 @@
 #include "../headers/SED.h"
-#include "../headers/Evenement.h"
-#include <iostream>
 
 void SED::ajouter(Evenement* evenement)
 {

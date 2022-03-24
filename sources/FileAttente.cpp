@@ -1,8 +1,5 @@
-#include "../headers/FileAttente.h"
-#include "../headers/Client.h"
-#include "../headers/Banque.h"
 
-using namespace std;
+#include "../headers/FileAttente.h"
 
 FileAttente::FileAttente(Banque *banque)
 {
@@ -23,10 +20,10 @@ float FileAttente::longueurMoyenne()
 
 float FileAttente::tempsMoyenAttente()
 {
-    accumulate(tempsAttente.begin(), tempsAttente.end(), 0.0)/tempsAttente.size();
+    return accumulate(tempsAttente.begin(), tempsAttente.end(), 0.0)/tempsAttente.size();
 }
 
-void FileAttente::ajouter(Client client)
+void FileAttente::ajouter(Client *client)
 {
     _file.push_back(client);
     if ((int)_file.size() > _longueurMax)
@@ -40,11 +37,11 @@ bool FileAttente::estVide()
     return _file.empty();
 }
 
-Client FileAttente::retirer()
+Client* FileAttente::retirer()
 {
 
-    Client client = _file.front();
-    tempsAttente.push_back(_banque->heure() - client.heureArrivee());
+    Client* client = _file.front();
+    tempsAttente.push_back(_banque->heure() - client->heureArrivee());
     _file.erase(_file.begin());
     return client;
 }

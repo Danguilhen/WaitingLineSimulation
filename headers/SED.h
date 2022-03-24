@@ -1,9 +1,10 @@
 #ifndef SED_
 #define SED_
+using namespace std;
+
 
 #include "Evenement.h"
-#include <vector>
-using namespace std;
+
 
 class SED
 {

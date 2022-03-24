@@ -1,6 +1,4 @@
 #include "../headers/FinService.h"
-#include "../headers/Poisson.h"
-#include "../headers/Caissier.h"
 #include <iostream>
 using namespace std;
 

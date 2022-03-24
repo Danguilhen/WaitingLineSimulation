@@ -1,9 +1,12 @@
 #ifndef FILE
 #define FILE
 
+#include <algorithm>
 #include "Banque.h"
 #include <vector>
 #include "Client.h"
+
+using namespace std;
 
 class Banque;
 class FileAttente
@@ -14,15 +17,15 @@ public:
     float longueurMoyenne();
     int longueurMax();
     float tempsMoyenAttente();
-    void ajouter(Client c);
+    void ajouter(Client* c);
     bool estVide();
-    Client retirer();
+    Client* retirer();
 
 private:
     int _nbClients;
     int _longueurMax;
     double _longueurMoyenne;
-    std::vector<Client> _file;
+    std::vector<Client*> _file;
     std::vector<float> tempsAttente;
     Banque *_banque;
 };

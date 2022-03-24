@@ -1,6 +1,6 @@
 #include "../headers/Caissier.h"
-#include "../headers/FinService.h"
-#include <numeric>
+
+
 using namespace std;
 
 Caissier::Caissier(float tempsMoyenService, Banque *banque)
@@ -35,7 +35,7 @@ void Caissier::devientLibre()
     }
     else
     {
-        servir(*_banque->getFile()->retirer());
+        servir(_banque->getFile()->retirer());
     }
 }
 

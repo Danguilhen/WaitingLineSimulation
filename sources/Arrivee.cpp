@@ -1,8 +1,5 @@
 #include "../headers/Arrivee.h"
-#include "../headers/Client.h"
-#include <vector>
-#include "../headers/Caissier.h"
-#include <iostream>
+
 using namespace std;
 
 Arrivee::Arrivee(float heure, Banque *banque)
@@ -24,12 +21,12 @@ void Arrivee::traiter()
     if (_banque->premierCaissierLibre() != NULL) // Must be modify
     {
         cout << "Deuxième if" << endl;
-        _banque->premierCaissierLibre()->servir(Client(_heure));
+        _banque->premierCaissierLibre()->servir(new Client(_heure));
         cout << "Deuxième if partie deux" << endl;
     }
     else
     {
         cout << "3 if" << endl;
-        _banque->getFile()->ajouter(Client(_heure));
+        _banque->getFile()->ajouter(new Client(_heure));
     }
 }

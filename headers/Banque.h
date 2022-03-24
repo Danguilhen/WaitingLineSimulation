@@ -1,8 +1,7 @@
 #ifndef BANQUE
 #define BANQUE
 
-#include <iostream>
-#include <vector>
+#include "Arrivee.h"
 #include "Evenement.h"
 #include "FileAttente.h"
 #include "SED.h"
@@ -27,7 +26,7 @@ public:
 
 private:
     float _tpsEntreArrivees;
-    FileAttente _file;
+    FileAttente* _file;
     float _dureePrevue;
     vector<Caissier> _caissiers;
 };
