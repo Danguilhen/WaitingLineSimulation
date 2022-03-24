@@ -23,8 +23,7 @@ float FileAttente::longueurMoyenne()
 
 float FileAttente::tempsMoyenAttente()
 {
-    return(1.5);
-    // TODO
+    accumulate(tempsAttente.begin(), tempsAttente.end(), 0.0)/tempsAttente.size();
 }
 
 void FileAttente::ajouter(Client client)
