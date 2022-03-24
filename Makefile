@@ -1,28 +1,32 @@
 # Fichiers sources
-SRC = sources/Arrivee.cpp \
-sources/Banque.cpp \
-sources/Caissier.cpp \
-sources/Client.cpp \
-sources/Evenement.cpp \
-sources/FileAttente.cpp \
-sources/FinService.cpp \
+SRC = sources/Banque.cpp \
+sources/Arrivee.cpp  \
+sources/Caissier.cpp  \
+sources/Client.cpp  \
+sources/Evenement.cpp  \
+sources/FileAttente.cpp  \
+sources/FinService.cpp  \
 sources/SED.cpp \
 sources/Poisson.cpp \
 simu.cpp
 
+# Fichiers objets
 OBJ = $(SRC:.cpp=.o)
 
+# Nom du programme
+NAME = simu
 
-main : $(OBJ) \
-        g++ -o main $(OBJ)
+all: $(NAME)
+	@rm -f $(OBJ)
 
-sources/Arrivee.o : headers/Arrivee.h headers/Client.h headers/Poisson.h headers/Caissier.h
-sources/Banque.o : headers/Banque.h headers/Caissier.h headers/Arrivee.h
-sources/Caissier.o : headers/Caissier.h headers/FinService.h
-sources/Client.o : headers/Client.h
-sources/Evenement.o : headers/Evenement.h
-sources/FileAttente.o : headers/Client.h headers/FileAttente.h
-sources/FinService.cpp : headers/FinService.h headers/Poisson.h headers/Caissier.h
-sources/SED.cpp : headers/SED.h headers/Evenement.h
-sources/Poisson.cpp : headers/Poisson.h
-simu.cpp : headers/Banque.h
+$(NAME): $(OBJ)
+	@g++ -o $(NAME) $(SRC) -W -Wall -Wextra -Werror -g3 \
+
+clean: 
+	@rm -rf *.o
+
+fclean: clean \
+	@rm -rf $(NAME) \
+	@rm -rf *~
+
+re: fclan all

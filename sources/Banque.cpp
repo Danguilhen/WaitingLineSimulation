@@ -41,14 +41,11 @@ Caissier *Banque::premierCaissierLibre()
     {
         if (_caissiers.at(index)->estLibre())
         {
-            std::cout << "Dans if de caissier libre" << '\n';
             caissier = _caissiers.at(index);
-            std::cout << "caissier at index réussi" << '\n';
             return caissier; // TODO : corriger
         }
         index++;
     }
-    std::cout << "Avant de return null" << '\n';
     return NULL;
 }
 
@@ -59,7 +56,7 @@ float Banque::dureePrevue()
 
 float Banque::dureeReel()
 {
-    return _dureeReel;
+    return _heure;
 }
 
 FileAttente *Banque::getFile()

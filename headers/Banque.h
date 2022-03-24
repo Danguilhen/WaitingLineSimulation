@@ -1,5 +1,3 @@
-// //#ifndef BANQUE
-////#define
 #pragma once
 
 #include "Arrivee.h"
@@ -32,5 +30,3 @@ private:
     float _dureePrevue;
     std::vector<Caissier *> _caissiers;
 };
-
-// //#endif

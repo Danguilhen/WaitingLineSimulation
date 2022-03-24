@@ -33,10 +33,11 @@ int main(int argc, char **argv)
     for (int i = 0; i < nombreCaissiers; i++)
     {
         std::cout << "\nCaissier " << i + 1 << " :" << '\n';
-        std::cout << "Nombre de clients servis : " << banque.getCaissier(i)->nbClients() << '\n';
-        std::cout << "Taux d'occupation : " << banque.getCaissier(i)->tauxOccupation() << '\n';
+        std::cout << "  Nombre de clients servis : " << banque.getCaissier(i)->nbClients() << '\n';
+        std::cout << "  Taux d'occupation : " << banque.getCaissier(i)->tauxOccupation() << '\n';
+        std::cout << "  Taux moyen de service : " << banque.getCaissier(i)->tempsMoyenService() << '\n';
     }
-    std::cout << "Longueur moyenne de la file : " << banque.getFile()->longueurMoyenne() << '\n';
-    std::cout << "Longueur maximale de la file d'attente : " << banque.getFile()->longueurMax() << '\n';
-    std::cout << "Temps moyen d'attente dans la file d'attente : " << banque.getFile()->tempsMoyenAttente() << '\n';
+    std::cout << "\nFile d'attente :\n  Longueur moyenne : " << banque.getFile()->longueurMoyenne() << '\n';
+    std::cout << "  Longueur maximale : " << banque.getFile()->longueurMax() << '\n';
+    std::cout << "  Temps moyen d'attente : " << banque.getFile()->tempsMoyenAttente() << '\n';
 }

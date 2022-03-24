@@ -22,7 +22,7 @@ float FileAttente::longueurMoyenne()
 
 float FileAttente::tempsMoyenAttente()
 {
-    return std::accumulate(tempsAttente.begin(), tempsAttente.end(), 0.0) / tempsAttente.size();
+    return std::accumulate(_tempsAttente.begin(), _tempsAttente.end(), decltype(_tempsAttente)::value_type(0)) / _tempsAttente.size();
 }
 
 void FileAttente::ajouter(Client *client)
@@ -41,9 +41,8 @@ bool FileAttente::estVide()
 
 Client *FileAttente::retirer()
 {
-
     Client *client = _file.front();
-    tempsAttente.push_back(_banque->heure() - client->heureArrivee());
+    _tempsAttente.push_back(_banque->heure() - client->heureArrivee());
     _file.erase(_file.begin());
     return client;
 }

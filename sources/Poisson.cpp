@@ -15,7 +15,7 @@ float Poisson::genererTemps(float lambda)
     float d, x;
     int k, r;
 
-    k = rand() % 10;
+    k = rand() % 100;
     x = exp(-lambda);
     r = fact(k);
     d = pow(lambda, k) / (float)r;

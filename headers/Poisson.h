@@ -1,5 +1,3 @@
-//#ifndef POISSON
-//#define
 #pragma once
 
 #include <iostream>
@@ -11,5 +9,3 @@ public:
     float genererTemps(float lambda);
     int fact(int nbr);
 };
-
-//#endif

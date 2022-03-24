@@ -25,7 +25,7 @@ private:
     int _longueurMax;
     double _longueurMoyenne;
     std::vector<Client *> _file;
-    std::vector<float> tempsAttente;
+    std::vector<float> _tempsAttente;
     Banque *_banque;
 };
 

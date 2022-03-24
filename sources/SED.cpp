@@ -18,7 +18,6 @@ void SED::lancer()
         min = _evenements[0]->heure();
         for (int i = 0; i < (int)_evenements.size(); i++)
         {
-            std::cout << "Coucou" << '\n';
             if (_evenements[i]->heure() < min)
             {
                 min = _evenements[i]->heure();
@@ -29,10 +28,14 @@ void SED::lancer()
         _evenements.erase(_evenements.begin() + index);
         evenement->traiter();
     }
-    _dureeReel = evenement->heure();
 }
 
 float SED::heure()
 {
     return _heure;
+}
+
+void SED::setHeure(float heure)
+{
+    _heure = heure;
 }

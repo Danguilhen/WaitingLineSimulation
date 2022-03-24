@@ -11,9 +11,9 @@ public:
     void ajouter(Evenement *evenement);
     void lancer();
     float heure();
+    void setHeure(float heure);
 
 protected:
-    float _dureeReel;
     float _heure;
     std::vector<Evenement *> _evenements;
 };

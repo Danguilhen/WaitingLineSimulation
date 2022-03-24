@@ -1,14 +1,13 @@
 #include "../headers/FinService.h"
 #include <iostream>
 
-FinService::FinService(Caissier *caissier)
+FinService::FinService(Caissier *caissier, float heure)
 {
     _caissier = caissier;
-    _heure = (new Poisson())->genererTemps(caissier->tempsMoyenService());
+    _heure = heure;
 }
 
 void FinService::traiter()
 {
-    std::cout << "Je traite dans fin de service" << '\n';
-    _caissier->estLibre();
+    _caissier->devientLibre();
 }

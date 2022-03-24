@@ -1,5 +1,3 @@
-// //#ifndef CAISSIER
-// //#define
 #pragma once
 
 #include "Banque.h"
@@ -30,5 +28,3 @@ private:
     Banque *_banque;
     std::vector<float> _tempsService;
 };
-
-////#endif

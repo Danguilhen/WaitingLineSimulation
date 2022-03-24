@@ -18,12 +18,13 @@ int Caissier::nbClients()
 
 float Caissier::tempsMoyenService()
 {
-    return std::accumulate(_tempsService.begin(), _tempsService.end(), 0) / _tempsService.size();
+    return std::accumulate(_tempsService.begin(), _tempsService.end(), decltype(_tempsService)::value_type(0)) / _tempsService.size();
 }
 
 float Caissier::tauxOccupation()
 {
-    return std::accumulate(_tempsService.begin(), _tempsService.end(), 0) / _banque->dureeReel();
+    return std::accumulate(_tempsService.begin(), _tempsService.end(), decltype(_tempsService)::value_type(0)) /
+           _banque->dureeReel();
 }
 
 void Caissier::devientLibre()
@@ -46,10 +47,11 @@ bool Caissier::estLibre()
 void Caissier::servir(Client *client)
 {
     delete client;
-    _tempsService.push_back(_poisson.genererTemps(_tempsMoyenService));
+    float heure = _poisson.genererTemps(_tempsMoyenService);
+    _tempsService.push_back(heure);
     _nbClients += 1;
     _estLibre = false;
-    FinService *finService = new FinService(this);
+    FinService *finService = new FinService(this, heure);
     _banque->getEvenements()
-        .push_back(finService); // TODO ajouter au bon endroit dans la file d'événement
+        .push_back(finService);
 }

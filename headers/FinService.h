@@ -1,5 +1,3 @@
-//#ifndef SERVICE
-//#define
 #pragma once
 
 #include "Evenement.h"
@@ -8,7 +6,7 @@
 class FinService : public Evenement
 {
 public:
-    FinService(Caissier *caissier);
+    FinService(Caissier *caissier, float heure);
     void traiter();
 
 private:
