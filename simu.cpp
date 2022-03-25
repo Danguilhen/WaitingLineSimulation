@@ -14,11 +14,10 @@
  */
 int main(int argc, char **argv)
 {
-
-    float dureePrevue;
+    float dureePrevue = 10;
     int nombreCaissiers = 0;
     std::vector<float> tempsMoyenService;
-    float tempsEntreArrivees;
+    float tempsEntreArrivees = 0.5;
 
     for (int i = 1; i < argc; i++)
     {
@@ -31,6 +30,11 @@ int main(int argc, char **argv)
                 tempsMoyenService.push_back(std::stof(argv[i + j]));
         else if (strcmp(argv[i], "-ta") == 0) // temps entre arrivée
             tempsEntreArrivees = std::stof(argv[i + 1]);
+        else
+        {
+            std::cout << "Les paramètres saisis ne sont pas corrects." << std::endl;
+            return 0;
+        }
     }
 
     Banque banque(dureePrevue, tempsMoyenService, tempsEntreArrivees);
