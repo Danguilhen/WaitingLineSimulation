@@ -5,6 +5,7 @@
 #include "FileAttente.h"
 #include "SED.h"
 #include "Caissier.h"
+#include "Poisson.h"
 #include <iostream>
 
 class FileAttente;
@@ -25,7 +26,7 @@ public:
     float tpsEntreArrivees();
 
 private:
-    float _tpsEntreArrivees;
+    Poisson *_generateur;
     FileAttente *_file;
     float _dureePrevue;
     std::vector<Caissier *> _caissiers;

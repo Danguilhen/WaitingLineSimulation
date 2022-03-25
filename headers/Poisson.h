@@ -2,10 +2,14 @@
 
 #include <iostream>
 #include <math.h>
-
+#include <random>
 class Poisson
 {
 public:
-    float genererTemps(float lambda);
+    Poisson(float lambda);
+    float genererTemps();
     int fact(int nbr);
+
+private:
+    float _lambda;
 };

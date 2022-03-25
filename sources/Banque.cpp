@@ -1,12 +1,13 @@
 #include "../headers/Banque.h"
 #include "../headers/FileAttente.h"
+#include "../headers/Poisson.h"
 
 Banque::Banque(float dureePrevue, std::vector<float> tpsService, float tempsMoyenEntreArrivees)
 {
-    _tpsEntreArrivees = tempsMoyenEntreArrivees;
+    _generateur = new Poisson(tempsMoyenEntreArrivees);
     Caissier *caissier;
     _file = new FileAttente(this);
-    float heure = Poisson().genererTemps(this->tpsEntreArrivees());
+    float heure = this->tpsEntreArrivees();
     Arrivee *arrivee = new Arrivee(heure, this);
     _evenements.push_back(arrivee);
     for (int i = 0; i < (int)tpsService.size(); i++)
@@ -14,7 +15,6 @@ Banque::Banque(float dureePrevue, std::vector<float> tpsService, float tempsMoye
         caissier = new Caissier(tpsService[i], this);
         _caissiers.push_back(caissier);
     }
-
     _dureePrevue = dureePrevue;
 }
 
@@ -75,5 +75,5 @@ Caissier *Banque::getCaissier(int i)
 }
 float Banque::tpsEntreArrivees()
 {
-    return _tpsEntreArrivees;
+    return _generateur->genererTemps();
 }

@@ -22,8 +22,9 @@ public:
 
 private:
     int _nbClients;
+    float _ancienneHeure;
+    float _aire;
     int _longueurMax;
-    double _longueurMoyenne;
     std::vector<Client *> _file;
     std::vector<float> _tempsAttente;
     Banque *_banque;

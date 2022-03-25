@@ -21,8 +21,7 @@ public:
     void servir(Client *client);
 
 private:
-    Poisson _poisson;
-    float _tempsMoyenService;
+    Poisson *_generateur;
     int _nbClients;
     bool _estLibre;
     Banque *_banque;
