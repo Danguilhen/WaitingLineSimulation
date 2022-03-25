@@ -2,6 +2,7 @@
 #include <iostream>
 
 /**
+ * @file sources/SED.cpp
  * @brief Ajouter un évènement à la simulation
  *
  * @param evenement
@@ -12,6 +13,7 @@ void SED::ajouter(Evenement *evenement)
 }
 
 /**
+ * @file sources/SED.cpp
  * @brief Réalise une simulation du service de la banque
  *
  */
@@ -40,6 +42,7 @@ void SED::lancer()
 }
 
 /**
+ * @file sources/SED.cpp
  * @brief Getter de l'heure actuelle
  *
  * @return float
@@ -50,7 +53,8 @@ float SED::heure()
 }
 
 /**
- * @briefSetter de l'haure actuelle
+ * @file sources/SED.cpp
+ * @brief Setter de l'haure actuelle
  *
  * @param heure
  */

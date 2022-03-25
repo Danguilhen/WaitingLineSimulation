@@ -4,8 +4,14 @@
 #include <vector>
 #include "headers/Banque.h"
 
-//  ./simu -dp 10 -nc 3 -ts 1 1 1 -ta 0.5
-//  g++ -o simu simu.cpp
+/**
+ * @file sources/simu.cpp
+ * @brief main
+ *
+ * @param argc
+ * @param argv
+ * @return int
+ */
 int main(int argc, char **argv)
 {
     float dureePrevue;
