@@ -12,5 +12,3 @@ public:
 private:
     Caissier *_caissier;
 };
-
-//#endif
