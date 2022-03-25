@@ -53,7 +53,7 @@ float FileAttente::tempsMoyenAttente()
 
 /**
  * @file sources/FileAttente.cpp
- * @brief ajoute un Client à la file d'attente et met à jour les paramètres _aire, _ancienneHeure, _longueurMax
+ * @brief ajoute un @param client à la file d'attente et met à jour les paramètres _aire, _ancienneHeure, _longueurMax
  *
  * @param client
  */
