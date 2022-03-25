@@ -21,7 +21,7 @@ Et un autre :
 ./simu -dp 60 -nc 5 -ts 5 8 3 9 2 -ta 0.1
 ```
 
-Signification des paramètres : \
+Signification des paramètres qu'il faut absolument renseigner : \
 -dp correspond à la **durée prévue**. \
 -nc correspond aux **nombres de clients**. \
 -ts correspond au **temps de service** des caissiers. Il faut donc renseigner autant de temps de services que vous avez renseigné de caissiers. \
