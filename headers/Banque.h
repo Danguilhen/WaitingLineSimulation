@@ -24,6 +24,7 @@ public:
     std::vector<Evenement *> &getEvenements();
     Caissier *getCaissier(int i);
     float tpsEntreArrivees();
+    ~Banque();
 
 private:
     Poisson *_generateur;

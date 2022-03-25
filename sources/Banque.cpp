@@ -1,15 +1,15 @@
 #include "../headers/Banque.h"
 #include "../headers/FileAttente.h"
 #include "../headers/Poisson.h"
-
+#include <algorithm>
 
 /**
  * @file sources/Banque.cpp
  * @brief Constructeur de l'objet Banque
- * 
- * @param dureePrevue 
- * @param tpsService 
- * @param tempsMoyenEntreArrivees 
+ *
+ * @param dureePrevue
+ * @param tpsService
+ * @param tempsMoyenEntreArrivees
  */
 Banque::Banque(float dureePrevue, std::vector<float> tpsService, float tempsMoyenEntreArrivees)
 {
@@ -30,8 +30,8 @@ Banque::Banque(float dureePrevue, std::vector<float> tpsService, float tempsMoye
 /**
  * @file sources/Banque.cpp
  * @brief Getter du nombre de caissiers
- * 
- * @return int 
+ *
+ * @return int
  */
 int Banque::nbCaissiers()
 {
@@ -41,8 +41,8 @@ int Banque::nbCaissiers()
 /**
  * @file sources/Banque.cpp
  * @brief Getter du nombre total des clients servis par l'ensemble des caissiers
- * 
- * @return int 
+ *
+ * @return int
  */
 int Banque::nbClients()
 {
@@ -57,12 +57,12 @@ int Banque::nbClients()
 /**
  * @file sources/Banque.cpp
  * @brief Renvoie le premier caissier libre trouvé parmi les caissiers
- * 
- * @return Caissier* 
- * 
- * Parcourt le vecteur contenant les caissiers, vérifie à chaque fois si le caissier est libre et 
+ *
+ * @return Caissier*
+ *
+ * Parcourt le vecteur contenant les caissiers, vérifie à chaque fois si le caissier est libre et
  * renvoie le premier caissier libre
- * 
+ *
  */
 Caissier *Banque::premierCaissierLibre()
 {
@@ -83,8 +83,8 @@ Caissier *Banque::premierCaissierLibre()
 /**
  * @file sources/Banque.cpp
  * @brief Getteur de la durée prévue
- * 
- * @return float 
+ *
+ * @return float
  */
 float Banque::dureePrevue()
 {
@@ -94,8 +94,8 @@ float Banque::dureePrevue()
 /**
  * @file sources/Banque.cpp
  * @brief Getter de l'heure actuelle
- * 
- * @return float 
+ *
+ * @return float
  */
 float Banque::dureeReel()
 {
@@ -105,8 +105,8 @@ float Banque::dureeReel()
 /**
  * @file sources/Banque.cpp
  * @brief Getter de la file d'attente
- * 
- * @return FileAttente* 
+ *
+ * @return FileAttente*
  */
 FileAttente *Banque::getFile()
 {
@@ -116,8 +116,8 @@ FileAttente *Banque::getFile()
 /**
  * @file sources/Banque.cpp
  * @brief Getter des évenements
- * 
- * @return std::vector<Evenement *>& 
+ *
+ * @return std::vector<Evenement *>&
  */
 std::vector<Evenement *> &Banque::getEvenements()
 {
@@ -127,9 +127,9 @@ std::vector<Evenement *> &Banque::getEvenements()
 /**
  * @file sources/Banque.cpp
  * @brief Retourne le caissier à l'index @param i du vecteur contenants tous les caissiers
- * 
- * @param i 
- * @return Caissier* 
+ *
+ * @param i
+ * @return Caissier*
  */
 Caissier *Banque::getCaissier(int i)
 {
@@ -139,10 +139,22 @@ Caissier *Banque::getCaissier(int i)
 /**
  * @file sources/Banque.cpp
  * @brief Generateur aléatoire du temps entre chaque arrivée
- * 
- * @return float 
+ *
+ * @return float
  */
 float Banque::tpsEntreArrivees()
 {
     return _generateur->genererTemps();
+}
+
+Banque ::~Banque()
+{
+    delete _generateur;
+    delete _file;
+    for (auto &pointer : _caissiers)
+    {
+        delete pointer;
+        pointer = nullptr;
+    }
+    _caissiers.erase(std::remove(_caissiers.begin(), _caissiers.end(), nullptr), _caissiers.end());
 }

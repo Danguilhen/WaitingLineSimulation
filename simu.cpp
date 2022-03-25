@@ -14,6 +14,7 @@
  */
 int main(int argc, char **argv)
 {
+
     float dureePrevue;
     int nombreCaissiers = 0;
     std::vector<float> tempsMoyenService;

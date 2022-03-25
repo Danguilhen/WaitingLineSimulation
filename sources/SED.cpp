@@ -36,8 +36,9 @@ void SED::lancer()
             }
         }
         evenement = _evenements.at(index);
-        _evenements.erase(_evenements.begin() + index);
         evenement->traiter();
+        delete _evenements.at(index);
+        _evenements.erase(_evenements.begin() + index);
     }
 }
 

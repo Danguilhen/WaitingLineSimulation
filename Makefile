@@ -20,7 +20,7 @@ all: $(NAME)
 	@rm -f $(OBJ)
 
 $(NAME): $(OBJ)
-	@g++ -o $(NAME) $(SRC) -W -Wall -Wextra -Werror -g3 \
+	@g++ -o $(NAME) $(SRC) -W -Wall -Wextra -g3 \
 
 clean: 
 	@rm -rf *.o
