@@ -14,7 +14,7 @@ Poisson::Poisson(float lambda)
 }
 
 /**
- * @brief
+ * @brief Calcule de factorielle de @param nbr
  *
  * @param nbr
  * @return int

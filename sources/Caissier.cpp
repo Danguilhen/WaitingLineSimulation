@@ -41,7 +41,7 @@ float Caissier::tempsMoyenService()
 
 /**
  * @file sources/Caissier.cpp
- * @brief Getter du taux d'occupation du caissier
+ * @brief Calcule et renvoie le taux d'occupation du caissier
  *
  * @return float
  */
@@ -58,7 +58,7 @@ float Caissier::tauxOccupation()
  */
 void Caissier::devientLibre()
 {
-    if (_banque->getFile()->estVide()) // file d'attente est vide TODO
+    if (_banque->getFile()->estVide())
     {
         _estLibre = true;
     }
@@ -82,9 +82,9 @@ bool Caissier::estLibre()
 
 /**
  * @file sources/Caissier.cpp
- * @brief Service d'un client
+ * @brief Service d'un @param client
  *
- * @param client
+ * @param client 
  */
 void Caissier::servir(Client *client)
 {

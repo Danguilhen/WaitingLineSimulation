@@ -1,5 +1,3 @@
-//#ifndef SED_
-//#define
 #pragma once
 
 #include <vector>
@@ -17,5 +15,3 @@ protected:
     float _heure;
     std::vector<Evenement *> _evenements;
 };
-
-//#endif

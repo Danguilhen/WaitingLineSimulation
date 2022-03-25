@@ -1,5 +1,3 @@
-// //#ifndef ARRIVEE
-// //#define
 #pragma once
 
 #include "Evenement.h"
@@ -15,5 +13,3 @@ public:
 private:
     Banque *_banque;
 };
-
-// //#endif

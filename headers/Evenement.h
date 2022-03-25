@@ -1,5 +1,3 @@
-//#ifndef EVENEMENT
-//#define
 #pragma once
 
 class Evenement
@@ -11,5 +9,3 @@ public:
 protected:
     float _heure;
 };
-
-//#endif

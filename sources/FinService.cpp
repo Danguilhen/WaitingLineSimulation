@@ -18,6 +18,8 @@ FinService::FinService(Caissier *caissier, float heure)
  * @file sources/FinService.cpp
  * @brief Traite la fin de service
  *
+ * Rend le caissier de l'évenement fin de service libre
+ * 
  */
 void FinService::traiter()
 {
