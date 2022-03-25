@@ -4,9 +4,10 @@
 #include <numeric>
 
 /**
- * @brief Construct a new File Attente:: File Attente object
- *
+ * @file sources/FileAttente.cpp
+ * @brief Contructeur d'un nouveau File Attente:: File Attente object
  * @param banque
+ * @return FileAttente
  */
 FileAttente::FileAttente(Banque *banque)
 {
@@ -18,8 +19,9 @@ FileAttente::FileAttente(Banque *banque)
 }
 
 /**
- * @brief
- *
+ * @file sources/FileAttente.cpp
+ * @brief getter de longueurMax
+ * 
  * @return int
  */
 int FileAttente::longueurMax()
@@ -28,8 +30,9 @@ int FileAttente::longueurMax()
 }
 
 /**
- * @brief
- *
+ * @file sources/FileAttente.cpp
+ * @brief calcule la longueur moyenne de la file d'attente
+ * 
  * @return float
  */
 float FileAttente::longueurMoyenne()
@@ -38,7 +41,8 @@ float FileAttente::longueurMoyenne()
 }
 
 /**
- * @brief
+ * @file sources/FileAttente.cpp
+ * @brief calcule de temps moyen d'attente d'un Client dans la file
  *
  * @return float
  */
@@ -48,7 +52,8 @@ float FileAttente::tempsMoyenAttente()
 }
 
 /**
- * @brief
+ * @file sources/FileAttente.cpp
+ * @brief ajoute un Client à la file d'attente et met à jour les paramètres _aire, _ancienneHeure, _longueurMax
  *
  * @param client
  */
@@ -64,7 +69,8 @@ void FileAttente::ajouter(Client *client)
 }
 
 /**
- * @brief
+ * @file sources/FileAttente.cpp
+ * @brief vérifie si le file est vide
  *
  * @return true
  * @return false
@@ -75,7 +81,8 @@ bool FileAttente::estVide()
 }
 
 /**
- * @brief
+ * @file sources/FileAttente.cpp
+ * @brief retire un Client de la file et met à jour les paramètre _aire, _ancienneHeure, _longueurMax
  *
  * @return Client*
  */

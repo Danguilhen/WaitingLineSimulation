@@ -3,8 +3,9 @@
 #include <iostream>
 
 /**
- * @brief
- *
+ * @file sources/Evenement.cpp
+ * @brief getter de l'attribut _heure
+ * 
  * @return float
  */
 float Evenement::heure()
