@@ -1,11 +1,20 @@
 #include "../headers/SED.h"
 #include <iostream>
 
+/**
+ * @brief Ajouter un évènement à la simulation
+ *
+ * @param evenement
+ */
 void SED::ajouter(Evenement *evenement)
 {
     _evenements.push_back(evenement);
 }
 
+/**
+ * @brief Réalise une simulation du service de la banque
+ *
+ */
 void SED::lancer()
 {
     int index;
@@ -30,11 +39,21 @@ void SED::lancer()
     }
 }
 
+/**
+ * @brief Getter de l'heure actuelle
+ *
+ * @return float
+ */
 float SED::heure()
 {
     return _heure;
 }
 
+/**
+ * @briefSetter de l'haure actuelle
+ *
+ * @param heure
+ */
 void SED::setHeure(float heure)
 {
     _heure = heure;
