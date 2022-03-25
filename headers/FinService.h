@@ -6,9 +6,10 @@
 class FinService : public Evenement
 {
 public:
-    FinService(Caissier *caissier, float heure);
+    FinService(Caissier *caissier, float heure, Client *client);
     void traiter();
 
 private:
     Caissier *_caissier;
+    Client *_client;
 };

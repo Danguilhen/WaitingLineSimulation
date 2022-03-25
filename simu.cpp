@@ -14,6 +14,7 @@
  */
 int main(int argc, char **argv)
 {
+    int compteur = 0;
     float dureePrevue = 10;
     int nombreCaissiers = 0;
     std::vector<float> tempsMoyenService;
@@ -22,21 +23,42 @@ int main(int argc, char **argv)
     for (int i = 1; i < argc; i++)
     {
         if (strcmp(argv[i], "-dp") == 0) // durée prévue
-            dureePrevue = std::stoi(argv[i + 1]);
-        else if (strcmp(argv[i], "-nc") == 0) // nombre de caissiers
-            nombreCaissiers = std::stoi(argv[i + 1]);
-        else if (strcmp(argv[i], "-ts") == 0) // temps de service
-            for (int j = 1; j < nombreCaissiers + 1; j++)
-                tempsMoyenService.push_back(std::stof(argv[i + j]));
-        else if (strcmp(argv[i], "-ta") == 0) // temps entre arrivée
-            tempsEntreArrivees = std::stof(argv[i + 1]);
-        else
         {
-            std::cout << "Les paramètres saisis ne sont pas corrects." << std::endl;
-            return 0;
+            dureePrevue = std::stoi(argv[i + 1]);
+            i += 1;
+            compteur += 1;
+        }
+        else if (strcmp(argv[i], "-nc") == 0) // nombre de caissiers
+        {
+            nombreCaissiers = std::stoi(argv[i + 1]);
+            compteur += 1;
+        }
+        else if (strcmp(argv[i], "-ts") == 0) // temps de service
+        {
+            for (int j = 1; j < nombreCaissiers + 1; j++)
+            {
+                if (i + j < argc)
+                {
+                    tempsMoyenService.push_back(std::stof(argv[i + j]));
+                }
+                else
+                {
+                    std::cout << "Les paramètres saisis ne sont pas corrects." << std::endl;
+                    return 0;
+                }
+            }
+        }
+        else if (strcmp(argv[i], "-ta") == 0) // temps entre arrivée
+        {
+            compteur += 1;
+            tempsEntreArrivees = std::stof(argv[i + 1]);
         }
     }
-
+    if (compteur * 2 + nombreCaissiers + 1 != argc - 1)
+    {
+        std::cout << "Les paramètres saisis ne sont pas corrects." << std::endl;
+        return 0;
+    }
     Banque banque(dureePrevue, tempsMoyenService, tempsEntreArrivees);
     banque.lancer();
     std::cout << "Durée réelle de simulation : " << banque.dureeReel() << '\n';

@@ -84,16 +84,15 @@ bool Caissier::estLibre()
  * @file sources/Caissier.cpp
  * @brief Service d'un @param client
  *
- * @param client 
+ * @param client
  */
 void Caissier::servir(Client *client)
 {
-    delete client;
     float heure = _generateur->genererTemps();
     _tempsService.push_back(heure);
     _nbClients += 1;
     _estLibre = false;
-    FinService *finService = new FinService(this, heure);
+    FinService *finService = new FinService(this, heure, client);
     _banque->getEvenements()
         .push_back(finService);
 }
