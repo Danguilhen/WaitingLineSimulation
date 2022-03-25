@@ -2,6 +2,13 @@
 #include "../headers/FinService.h"
 #include <numeric>
 
+/**
+ * @file sources/Caissier.cpp
+ * @brief Construct a new Caissier:: Caissier object
+ *
+ * @param tempsMoyenService
+ * @param banque
+ */
 Caissier::Caissier(float tempsMoyenService, Banque *banque)
 {
     _generateur = new Poisson(tempsMoyenService);
@@ -11,7 +18,8 @@ Caissier::Caissier(float tempsMoyenService, Banque *banque)
 }
 
 /**
- * @brief
+ * @file sources/Caissier.cpp
+ * @brief Getter du nombre de clients servis par le caissier
  *
  * @return int
  */
@@ -21,7 +29,8 @@ int Caissier::nbClients()
 }
 
 /**
- * @brief
+ * @file sources/Caissier.cpp
+ * @brief Getter du temps moyen de service du caissier
  *
  * @return float
  */
@@ -31,7 +40,8 @@ float Caissier::tempsMoyenService()
 }
 
 /**
- * @brief
+ * @file sources/Caissier.cpp
+ * @brief Getter du taux d'occupation du caissier
  *
  * @return float
  */
@@ -42,7 +52,8 @@ float Caissier::tauxOccupation()
 }
 
 /**
- * @brief
+ * @file sources/Caissier.cpp
+ * @brief Libère le caissier
  *
  */
 void Caissier::devientLibre()
@@ -58,7 +69,8 @@ void Caissier::devientLibre()
 }
 
 /**
- * @brief
+ * @file sources/Caissier.cpp
+ * @brief Getter de l'état d'occupation du caissier
  *
  * @return true
  * @return false
@@ -69,7 +81,8 @@ bool Caissier::estLibre()
 }
 
 /**
- * @brief
+ * @file sources/Caissier.cpp
+ * @brief Service d'un client
  *
  * @param client
  */
