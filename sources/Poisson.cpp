@@ -1,6 +1,11 @@
 #include "../headers/Poisson.h"
 #include <ctime>
 
+/**
+ * @brief Construction d'un nouveau Poisson:: Poisson object
+ *
+ * @param lambda
+ */
 Poisson::Poisson(float lambda)
 {
     int seed = 0;
@@ -8,6 +13,12 @@ Poisson::Poisson(float lambda)
     _lambda = lambda;
 }
 
+/**
+ * @brief
+ *
+ * @param nbr
+ * @return int
+ */
 int Poisson::fact(int nbr)
 {
     // Factorielle de 1 vaut aussi 1
@@ -18,6 +29,11 @@ int Poisson::fact(int nbr)
     return (nbr * fact(nbr - 1));
 }
 
+/**
+ * @brief Génère une valeur aléatoire suivant une loi de Poisson
+ *
+ * @return float
+ */
 float Poisson::genererTemps()
 {
     return -log(((double)rand() / RAND_MAX)) * _lambda;
