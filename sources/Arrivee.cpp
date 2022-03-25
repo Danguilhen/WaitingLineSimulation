@@ -12,7 +12,6 @@ void Arrivee::traiter()
     if (_banque->heure() < _banque->dureePrevue())
     {
         float heure = _banque->tpsEntreArrivees() + _heure;
-        std::cout << heure - _heure << std::endl;
         _banque->setHeure(heure);
         Arrivee *arrivee = new Arrivee(heure, _banque);
         _banque->getEvenements().push_back(arrivee);
