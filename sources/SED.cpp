@@ -54,7 +54,7 @@ float SED::heure()
 
 /**
  * @file sources/SED.cpp
- * @brief Setter de l'haure actuelle
+ * @brief Setter de l' @param heure actuelle
  *
  * @param heure
  */
