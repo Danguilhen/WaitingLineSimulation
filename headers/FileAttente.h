@@ -1,8 +1,5 @@
-//#ifndef FILE
-//#define
 #pragma once
 
-//#include <algorithm>
 #include "Banque.h"
 #include <vector>
 #include "Client.h"
@@ -29,5 +26,3 @@ private:
     std::vector<float> _tempsAttente;
     Banque *_banque;
 };
-
-//#endif

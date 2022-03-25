@@ -1,5 +1,3 @@
-////#ifndef CLIENT
-////#define
 #pragma once
 
 class Client
@@ -12,5 +10,3 @@ public:
 private:
     float _heureArrivee;
 };
-
-////#endif
