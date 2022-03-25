@@ -3,6 +3,11 @@
 #include "../headers/Banque.h"
 #include <numeric>
 
+/**
+ * @brief Construct a new File Attente:: File Attente object
+ *
+ * @param banque
+ */
 FileAttente::FileAttente(Banque *banque)
 {
     _ancienneHeure = 0;
@@ -12,21 +17,41 @@ FileAttente::FileAttente(Banque *banque)
     _nbClients = 0;
 }
 
+/**
+ * @brief
+ *
+ * @return int
+ */
 int FileAttente::longueurMax()
 {
     return _longueurMax;
 }
 
+/**
+ * @brief
+ *
+ * @return float
+ */
 float FileAttente::longueurMoyenne()
 {
     return _aire / _banque->heure();
 }
 
+/**
+ * @brief
+ *
+ * @return float
+ */
 float FileAttente::tempsMoyenAttente()
 {
     return std::accumulate(_tempsAttente.begin(), _tempsAttente.end(), decltype(_tempsAttente)::value_type(0)) / _tempsAttente.size();
 }
 
+/**
+ * @brief
+ *
+ * @param client
+ */
 void FileAttente::ajouter(Client *client)
 {
     _aire += (_banque->heure() - _ancienneHeure) * _file.size();
@@ -38,11 +63,22 @@ void FileAttente::ajouter(Client *client)
     }
 }
 
+/**
+ * @brief
+ *
+ * @return true
+ * @return false
+ */
 bool FileAttente::estVide()
 {
     return _file.empty();
 }
 
+/**
+ * @brief
+ *
+ * @return Client*
+ */
 Client *FileAttente::retirer()
 {
     _aire += (_banque->heure() - _ancienneHeure) * _file.size();

@@ -2,6 +2,11 @@
 
 #include <iostream>
 
+/**
+ * @brief
+ *
+ * @return float
+ */
 float Evenement::heure()
 {
     return _heure;
