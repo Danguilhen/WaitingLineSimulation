@@ -1,4 +1,3 @@
-# Fichiers sources
 SRC = sources/Banque.cpp \
 sources/Arrivee.cpp  \
 sources/Caissier.cpp  \
@@ -6,27 +5,39 @@ sources/Client.cpp  \
 sources/Evenement.cpp  \
 sources/FileAttente.cpp  \
 sources/FinService.cpp  \
-sources/SED.cpp \
+sources/SED.cpp    \
 sources/Poisson.cpp \
 simu.cpp
 
-# Fichiers objets
 OBJ = $(SRC:.cpp=.o)
 
-# Nom du programme
 NAME = simu
 
-all: $(NAME)
-	@rm -f $(OBJ)
+all : compile run docs
 
-$(NAME): $(OBJ)
-	@g++ -o $(NAME) $(SRC) -W -Wall -Wextra -g3 \
+run : 
+	./$(NAME)
 
-clean: 
-	@rm -rf *.o
 
-fclean: clean \
-	@rm -rf $(NAME) \
-	@rm -rf *~
+compile : $(NAME)
 
-re: fclan all
+$(NAME) : $(OBJ)                                                       
+	g++ -o $(NAME) $(SRC) -W -Wall -Wextra -Werror -g3
+	rm -f $(OBJ)
+
+clean :
+	rm -f $(OBJ)
+
+fclean:	clean
+	rm -rf $(NAME)
+	rm -rf *~
+	rm -rf docs
+
+re : fclean all
+
+$(V).SILENT:
+
+DOXYFILE = Doxyfile
+
+docs :
+	doxygen $(DOXYFILE)
